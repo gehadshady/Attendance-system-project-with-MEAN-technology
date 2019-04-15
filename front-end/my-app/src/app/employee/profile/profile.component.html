@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#MonthlyReport" role="tab" aria-controls="home" aria-selected="true">Monthly Report</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#DailyReport" role="tab" aria-controls="profile" aria-selected="false">Daily Report</a>
+  </li>
+ 
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="MonthlyReport" role="tabpanel" aria-labelledby="home-tab"></div>
+  <div class="tab-pane fade mt-3" id="DailyReport" role="tabpanel" aria-labelledby="profile-tab">Attendance Time Today : <span class="text-info">{{attedObj.attenTime}}</span> <br>
+  Excute:<span class="text-danger" *ngIf="attedObj.excuteTimes">yes</span><span class="text-success" *ngIf="!attedObj.excuteTimes"> No</span><br>
+  Late: <span class="text-danger" *ngIf="attedObj.lateFlag">yes</span><span class="text-success" *ngIf="!attedObj.lateFlag"> No</span>
+
+ 
+</div>

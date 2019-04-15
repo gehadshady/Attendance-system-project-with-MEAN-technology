@@ -1,0 +1,27 @@
+<h2 class="text-center">Register</h2>
+
+<form  #Fref="ngForm" (submit)=addEmp(newEmp)>
+    <div class="form-group">
+      <label for="ID">Id</label>
+      <input required [(ngModel)]="newEmp._id" #IdRef="ngModel" type="text" name="ID" class="form-control" id="ID"  placeholder="Enter ID" >
+      <!-- <div class="text-danger" *ngIf="IdRef.invalid">
+        <p *ngIf="IdRef.errors?.required">Please enter id</p>
+      </div> -->
+    </div>
+  <div class="form-group">
+    <label for="FName">Frist Name</label>
+    <input required [(ngModel)]="newEmp.FirstName" type="text" name="FName" class="form-control" id="FName"  placeholder="Enter Frist Name">
+  </div>
+  <div class="form-group">
+    <label for="LName">Last name</label>
+    <input required [(ngModel)]="newEmp.LastName" type="text" name="LName" class="form-control" id="LName" placeholder="Enter Last Name">
+  </div>
+  <div class="form-group">
+      <label for="Email">Email</label>
+      <input required [(ngModel)]="newEmp.Email" type="email" name="Email" class="form-control" id="Email" placeholder="Enter Email">
+    </div>
+    
+  
+  <button type="submit" [disabled]="!Fref.valid" class="btn btn-primary">Submit</button>
+</form>
+<!-- <button (click)="console.log(Fref)">show Fref</button> -->

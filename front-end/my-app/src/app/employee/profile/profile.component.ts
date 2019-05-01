@@ -10,22 +10,44 @@ import { Attendance } from 'src/app/attendance';
 })
 export class ProfileComponent implements OnInit {
   LoggeUser:Employee;
-  attedObj:Attendance;
+  DailyAttedObj:Attendance;
+  montlyAttendance:any=[];
+  montlyExcuteTimes=0;
+  montlyLateTimes=0;
+
+
   
   constructor(private empServ:EmpServiceService ) {
-
-    this.LoggeUser=(JSON.parse(localStorage.getItem("user")));
-    this.empServ.getDialyReport(this.LoggeUser._id).subscribe(
-      res=>{console.log(res);this.attedObj=res},
-      err=>console.log(err.message),
-      ()=>console.log(this.attedObj)
-    )
-   }
+  }
   
+    
+
   ngOnChanges(){}
   ngOnInit() {
-  
-  }
+    this.LoggeUser=(JSON.parse(localStorage.getItem("user")));
 
+    this.empServ.getDialyReport(this.LoggeUser._id).subscribe(
+      res=>{console.log(res);this.DailyAttedObj=res},
+      err=>console.log(err.message),
+      ()=>console.log(this.DailyAttedObj)
+    )
+      this.empServ.getMonthlyReport(this.LoggeUser._id).subscribe(
+        res=>{console.log(res);this.montlyAttendance=res},
+        err=>console.log(err.message),
+        ()=>(
+        this.montlyAttendance.forEach(element => {
+           if(element.excuteTimes)
+           ++this.montlyExcuteTimes;
+           if(element.lateFalg)
+           {
+             console.log("wwww")
+             ++this.montlyLateTimes;  
+           }   
+  
+        }))
+      )
+
+  
+    }
 
 }

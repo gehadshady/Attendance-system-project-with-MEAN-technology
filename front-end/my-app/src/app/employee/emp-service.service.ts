@@ -38,8 +38,11 @@ export class EmpServiceService {
   }
 
   getDialyReport(id){
-
     return this.http.get(this.url+"/dailyReport/"+id)
+  }
+  
+  getMonthlyReport(id){
+    return this.http.get(this.url+"/monthlyReport/"+id)
   }
   
 

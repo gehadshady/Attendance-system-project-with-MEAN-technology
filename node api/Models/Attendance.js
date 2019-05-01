@@ -3,7 +3,7 @@ let mongoose=require("mongoose");
 let AttendanceSchema=new mongoose.Schema({
    // _id:Number,
     Date:{
-        type:String,
+        type:Date,
         default:""
     },
     employee:{

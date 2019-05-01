@@ -8,10 +8,18 @@
  
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="MonthlyReport" role="tabpanel" aria-labelledby="home-tab"></div>
-  <div class="tab-pane fade mt-3" id="DailyReport" role="tabpanel" aria-labelledby="profile-tab">Attendance Time Today : <span class="text-info">{{attedObj.attenTime}}</span> <br>
-  Excute:<span class="text-danger" *ngIf="attedObj.excuteTimes">yes</span><span class="text-success" *ngIf="!attedObj.excuteTimes"> No</span><br>
-  Late: <span class="text-danger" *ngIf="attedObj.lateFlag">yes</span><span class="text-success" *ngIf="!attedObj.lateFlag"> No</span>
+  <div class="tab-pane fade show active mt-3" id="MonthlyReport" role="tabpanel" aria-labelledby="home-tab">
+    Excute Times : <span class="text-danger">{{montlyExcuteTimes}}</span>
+
+    <br>
+
+  Late Times : <span class="text-danger">{{montlyLateTimes}}</span>
+  </div>
+
+
+  <div class="tab-pane fade mt-3" id="DailyReport" role="tabpanel" aria-labelledby="profile-tab">Attendance Time Today : <span class="text-info">{{DailyAttedObj.attenTime}}</span> <br>
+  Excute:<span class="text-danger" *ngIf="DailyAttedObj.excuteTimes">yes</span><span class="text-success" *ngIf="!DailyAttedObj.excuteTimes"> No</span><br>
+  Late: <span class="text-danger" *ngIf="DailyAttedObj.lateFlag">yes</span><span class="text-success" *ngIf="!DailyAttedObj.lateFlag"> No</span>
 
  
 </div>

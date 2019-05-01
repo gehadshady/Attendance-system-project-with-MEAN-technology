@@ -31,6 +31,27 @@ let express=require("express"),
         })
 
     })
+    AtdRouter.get("/monthlyReport/:id",(req,res)=>{
+        AttendanceModel.find({ Date: { $lte: new Date("4/30/2019"),$gte:new Date("4/1/2019")
+    },employee:req.params.id},
+        (err,result)=>{
 
+            if(!err)
+            {
+                if(result!=null)
+                {
+                    res.send(200,result)
+                }
+                else
+                {
+                    res.send(404)
+                }
+
+            }else
+            {
+                console.log(err.message)
+            }
+        })
+    })
 
 module.exports=AtdRouter;
